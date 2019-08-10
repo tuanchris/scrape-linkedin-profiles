@@ -61,7 +61,8 @@ def scrape_google_results(pages, file_name):
     urls.to_csv(file_name,index=False)
     return urls
 
-driver = webdriver.Chrome('/usr/local/bin/chromedriver')
-login_linkedin()
-search_google(args.keyword,args.city)
-urls = scrape_google_results(args.pages,args.output)
+if __name__ == '__main__':
+    driver = webdriver.Chrome('/usr/local/bin/chromedriver')
+    login_linkedin()
+    search_google(args.keyword,args.city)
+    urls = scrape_google_results(args.pages,args.output)
