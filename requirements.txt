@@ -1,0 +1,7 @@
+pandas
+numpy
+selenium
+beautifulsoup4
+parsel
+python-dotenv
+scrape-linkedin-selenium
