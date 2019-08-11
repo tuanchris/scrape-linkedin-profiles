@@ -8,11 +8,11 @@ from parsel import Selector, SelectorList
 from bs4 import BeautifulSoup
 import os
 import argparse
+import getpass
 
-load_dotenv()
 
-username = os.getenv('USERNAME')
-password = os.getenv('PASSWORD')
+username = input('LinkedIn email: ')
+password = getpass.getpass()
 
 
 parser = argparse.ArgumentParser(description='Crawl linkedin profiles from Google with title and city')
