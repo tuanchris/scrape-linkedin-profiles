@@ -3,11 +3,7 @@ A side project to scrape LinkedIn profile and find suitable candidate
 ## Introduction
 This is a python project to scrape LinkedIn profiles from Google search results and scrape all public information from those profiles.
 
-<<<<<<< HEAD
 **Warning: LinkedIn has a very strong anti-scraping policy. Use the codes here at your own risks.**
-=======
-**Warning: LinkedIn have a very strong anti scraping policy. Use the codes here at your own risks.**
->>>>>>> 4c6129edc470d275f737356b871fbf7136d55374
 
 ## Install
 Clone this repo to your local machine:
