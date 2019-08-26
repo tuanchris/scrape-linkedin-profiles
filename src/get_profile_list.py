@@ -18,7 +18,7 @@ password = getpass.getpass()
 parser = argparse.ArgumentParser(description='Crawl linkedin profiles from Google with title and city')
 parser.add_argument('--keyword')
 parser.add_argument('--city')
-parser.add_argument('--pages',default=10)
+parser.add_argument('--pages',default=10, type=int)
 parser.add_argument('--output')
 args = parser.parse_args()
 
@@ -47,9 +47,12 @@ def scrape_google_results(pages, file_name):
     urls = []
     while True and pages > 0:
         try:
-            linkedin_urls = driver.find_elements_by_class_name('iUh30')
-            sleep(0.5)
-            urls.append([url.text for url in linkedin_urls])
+            # linkedin_urls = driver.find_elements_by_class_name('iUh30')
+            # sleep(0.5)
+            # urls.append([url.text for url in linkedin_urls])
+            results = driver.find_elements_by_css_selector('div.g')
+            links = [result.find_element_by_tag_name("a") for result in results]
+            urls.append([link.get_attribute("href") for link in links])
             next = driver.find_element_by_xpath('//*[@id="pnnext"]/span[2]')
             next.click()
             sleep(0.5)
@@ -66,3 +69,9 @@ if __name__ == '__main__':
     login_linkedin()
     search_google(args.keyword,args.city)
     urls = scrape_google_results(args.pages,args.output)
+
+# search_google('lean, continuous improvement, 6sixma, process specialist, lean specialist', 'vietnam')
+# scrape_google_results(1,'./lean.csv')
+#
+# linkedin_urls = driver.find_elements_by_xpath("//h3[@class='r']/a")
+# [url.text for url in linkedin_urls]
